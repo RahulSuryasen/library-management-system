@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Book</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Library Management System</h1>
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('books') }}">View Books</a></li>
+                    <li><a href="{{ url_for('add_book') }}">Add Book</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="form-container">
+        <div class="container">
+            <h2>Edit Book</h2>
+            <form method="POST">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" value="{{ book.title }}" required>
+                <label for="author">Author:</label>
+                <input type="text" id="author" name="author" value="{{ book.author }}" required>
+                <button type="submit" class="btn submit-btn">Update Book</button>
+            </form>
+            <a href="{{ url_for('books') }}" class="btn back-btn">Back to Books List</a>
+        </div>
+    </section>
+</body>
+</html>
